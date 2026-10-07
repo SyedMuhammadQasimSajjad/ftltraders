@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTL Traders | Premium Laptops</title>
+    <!-- Meta Description -->
+    <meta name="description" content="FTL Traders offers premium, affordable gaming and business laptops in Pakistan. Shop our latest collection of high-performance laptops with 15-day store warranty.">
+
+    <!-- Keywords -->
+    <meta name="keywords" content="gaming laptops, buy laptops online Pakistan, FTL Traders, business laptops, affordable laptops, laptop price in Pakistan">
+
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="ftltraders.com">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:title" content="FTL Traders | Premium Laptops">
+    <meta property="og:description" content="Shop the best selection of gaming and business laptops at FTL Traders. High performance, great prices, and reliable support.">
+    <meta property="og:image" content="ftltraders.com/logo.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="ftltraders.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FTL Traders | Premium Laptops">
+    <meta name="twitter:description" content="Find the best deals on gaming and business laptops at FTL Traders.">
+    <meta name="twitter:image" content="ftltraders.com/logo.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/logo.jpeg?v=2">
+
+    <!-- High-Priority Background Image Preloading -->
+    <link rel="preload" as="image" href="/background-light.webp">
+    <link rel="preload" as="image" href="/background.webp">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Montserrat Font for Prices -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <script src="config.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+
+        @media (max-width: 768px) {
+           #hero-section {
+                background-image: url('light-mobile.webp') !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                min-height: 480px;
+            }
+            .dark #hero-section {
+                background-image: url('dark-mobile.webp') !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                min-height: 480px;
+            }
+        }
+        /* Theme-aware Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1; /* slate-300 */
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #94a3b8; /* slate-400 */
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #404040; /* neutral-700 */
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #525252; /* neutral-600 */
+        }
+
+        /* Price Font Setting */
+        .price-font {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+        }
+
+        @media (max-width: 640px) {
+            #compare-modal table {
+                font-size: 0.7rem;
+            }
+            #compare-modal td {
+                padding: 4px !important;
+            }
+            #compare-modal td:first-child {
+                width: 30% !important;
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gradient-to-br dark:from-[#1e252b] dark:to-[#111417] text-slate-900 dark:text-neutral-300 font-sans min-h-screen h-full flex flex-col selection:bg-sky-500 selection:text-white transition-colors duration-300">
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-black/60 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <!-- Updated Logo reference -->
+            <img src="logo.jpeg" alt="FTL Traders Logo" class="w-10 h-10 object-contain rounded-md">
+
+            <h1 class="text-2xl font-extrabold tracking-tighter text-slate-900 dark:text-white">
+                FTL<span class="text-sky-500">TRADERS</span>
+            </h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="p-3 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-full border border-slate-200 dark:border-white/5 transition-all text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+
+            <!-- Cart Button -->
+            <button id="cart-btn" class="relative p-3 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-full border border-slate-200 dark:border-white/5 transition-all focus:outline-none group">
+                <i class="fas fa-shopping-cart text-slate-600 dark:text-neutral-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-sky-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-[0_0_10px_rgba(14,165,233,0.6)]">0</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- 2. Hero: Brand Claim -->
+<section id="hero-section" class="relative bg-[url('/background-light.webp')] dark:bg-[url('/background.webp')] bg-cover bg-center border-b border-slate-200 dark:border-white/5 transition-all duration-500">
+
+    <!-- Optional: A very subtle overlay to ensure text remains readable over the laptop images on smaller screens -->
+    <div class="absolute inset-0 bg-white/60 dark:bg-[#111417]/60 sm:bg-white/30 sm:dark:bg-[#111417]/40 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 pt-14 pb-10 text-center relative z-10">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-500/20 backdrop-blur-md text-sky-600 dark:text-sky-300 text-xs font-bold uppercase tracking-widest border border-sky-200 dark:border-sky-500/30 mb-5 shadow-sm">
+            Pakistan's First Laptop E-Commerce Wholesale Store
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight max-w-3xl mx-auto drop-shadow-md">
+            Wholesale Laptop Prices, <br class="hidden sm:block"> <span class="text-sky-600 dark:text-sky-500">Delivered to Your Door.</span>
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-slate-700 dark:text-neutral-200 max-w-xl mx-auto font-medium drop-shadow-md">
+            Every laptop is checked and tested by our certified team before it reaches you.
+        </p>
+    </div>
+
+    <!-- Trust Badges Row -->
+    <div class="max-w-7xl mx-auto px-4 pb-10 relative z-10">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl p-4 flex flex-col items-center text-center gap-2 shadow-sm transition-colors">
+                <i class="fas fa-tags text-sky-500 text-xl"></i>
+                <p class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">Wholesale Prices</p>
+            </div>
+            <div class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl p-4 flex flex-col items-center text-center gap-2 shadow-sm transition-colors">
+                <i class="fas fa-certificate text-sky-500 text-xl"></i>
+                <p class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">Checked &amp; Tested by Certified Team</p>
+            </div>
+            <div class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl p-4 flex flex-col items-center text-center gap-2 shadow-sm transition-colors">
+                <i class="fas fa-shield-alt text-sky-500 text-xl"></i>
+                <p class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">15-Day Guarantee</p>
+            </div>
+            <div class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl p-4 flex flex-col items-center text-center gap-2 shadow-sm transition-colors">
+                <i class="fas fa-truck text-sky-500 text-xl"></i>
+                <p class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">Laptops at Your Doorstep</p>
+            </div>
+            <div class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 hover:border-sky-500/50 hover:shadow-[0_0_15px_rgba(14,165,233,0.2)] transition-all duration-300 rounded-2xl p-4 flex flex-col items-center justify-center text-center gap-1.5 col-span-2 sm:col-span-1 group">
+
+
+                <div class="flex gap-1 text-amber-400 text-sm sm:text-base group-hover:-translate-y-0.5 transition-transform duration-300">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <!-- Dynamic Text with Gradient Number -->
+                <p class="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 leading-tight mt-1">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600 text-base sm:text-lg font-black block mb-0.5">
+                        300+
+                    </span>
+                    Satisfied Customers
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. Shop by Category -->
+<section class="max-w-7xl mx-auto px-4 pt-10">
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Shop by Category</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3" id="category-section">
+        <button data-category="business" class="category-card bg-slate-50 dark:bg-neutral-900/40 hover:bg-sky-50 dark:hover:bg-sky-500/10 border border-slate-200 dark:border-white/5 hover:border-sky-400 dark:hover:border-sky-500/40 rounded-2xl p-5 flex flex-col items-center gap-2 transition-all">
+            <i class="fas fa-briefcase text-2xl text-sky-500"></i>
+            <span class="text-sm font-semibold text-slate-800 dark:text-white">Business Laptops</span>
+        </button>
+        <button data-category="budget" class="category-card bg-slate-50 dark:bg-neutral-900/40 hover:bg-sky-50 dark:hover:bg-sky-500/10 border border-slate-200 dark:border-white/5 hover:border-sky-400 dark:hover:border-sky-500/40 rounded-2xl p-5 flex flex-col items-center gap-2 transition-all">
+            <i class="fas fa-graduation-cap text-2xl text-sky-500"></i>
+            <span class="text-sm font-semibold text-slate-800 dark:text-white">Student &amp; Budget</span>
+        </button>
+        <button data-category="gaming" class="category-card bg-slate-50 dark:bg-neutral-900/40 hover:bg-sky-50 dark:hover:bg-sky-500/10 border border-slate-200 dark:border-white/5 hover:border-sky-400 dark:hover:border-sky-500/40 rounded-2xl p-5 flex flex-col items-center gap-2 transition-all">
+            <i class="fas fa-gamepad text-2xl text-sky-500"></i>
+            <span class="text-sm font-semibold text-slate-800 dark:text-white">Gaming Laptops</span>
+        </button>
+        <button data-category="apple" class="category-card bg-slate-50 dark:bg-neutral-900/40 hover:bg-sky-50 dark:hover:bg-sky-500/10 border border-slate-200 dark:border-white/5 hover:border-sky-400 dark:hover:border-sky-500/40 rounded-2xl p-5 flex flex-col items-center gap-2 transition-all">
+            <i class="fab fa-apple text-2xl text-sky-500"></i>
+            <span class="text-sm font-semibold text-slate-800 dark:text-white">Apple / MacBook</span>
+        </button>
+        <button data-category="general" class="category-card bg-slate-50 dark:bg-neutral-900/40 hover:bg-sky-50 dark:hover:bg-sky-500/10 border border-slate-200 dark:border-white/5 hover:border-sky-400 dark:hover:border-sky-500/40 rounded-2xl p-5 flex flex-col items-center gap-2 transition-all">
+            <i class="fas fa-laptop text-2xl text-sky-500"></i>
+            <span class="text-sm font-semibold text-slate-800 dark:text-white">General Laptops</span>
+        </button>
+    </div>
+</section>
+
+<!-- 5. Main Layout Structure -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-8">
+
+    <!-- Sidebar: Filters -->
+    <aside class="w-full md:w-64 bg-slate-50 dark:bg-neutral-900/40 backdrop-blur-md p-6 rounded-3xl border border-slate-200 dark:border-white/5 h-fit shrink-0 shadow-xl transition-all">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-white/10" id="mobile-filter-header">
+            <h2 class="text-sm font-bold text-slate-900 dark:text-white tracking-widest uppercase flex items-center gap-2">
+                <i class="fas fa-sliders-h text-sky-500 md:hidden"></i> Filters
+            </h2>
+            <div class="flex items-center gap-4">
+                <button id="clear-filters" class="text-xs text-slate-500 dark:text-neutral-500 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Reset</button>
+                <button id="mobile-filter-toggle" class="md:hidden text-slate-500 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white transition-colors p-1">
+                    <i class="fas fa-chevron-down transition-transform duration-300" id="filter-chevron"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Price Range Filter -->
+        <div class="filter-group pb-6 mb-6 border-b border-slate-200 dark:border-white/10">
+            <h3 class="text-xs font-semibold text-slate-500 dark:text-neutral-500 uppercase tracking-widest mb-4">Price Range</h3>
+            <div class="px-2">
+                <div class="relative h-1.5 bg-slate-200 dark:bg-neutral-700 rounded-full mb-4 mt-2">
+                    <div class="absolute h-full bg-sky-500 rounded-full z-10" id="slider-track" style="left: 0%; right: 0%;"></div>
+                    <input type="range" min="0" max="500000" step="5000" value="0" id="min-price-slider"
+                           class="absolute w-full -top-1.5 h-4 appearance-none bg-transparent pointer-events-none z-20
+                               [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-sky-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer">
+                    <input type="range" min="0" max="500000" step="5000" value="500000" id="max-price-slider"
+                           class="absolute w-full -top-1.5 h-4 appearance-none bg-transparent pointer-events-none z-20
+                               [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-sky-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer">
+                </div>
+                <div class="flex justify-between items-center text-xs font-bold text-slate-600 dark:text-neutral-400">
+                    <span id="min-price-display" class="price-font">Rs 0</span>
+                    <span id="max-price-display" class="price-font">Rs 500,000+</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="filter-content" class="hidden md:block mt-6 space-y-8 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar">
+            <!-- Brand Filter -->
+            <div class="filter-group">
+                <h3 class="text-xs font-semibold text-slate-500 dark:text-neutral-500 uppercase tracking-widest mb-4">Brand</h3>
+                <div class="space-y-3">
+                    <!-- Repeated checkboxes with updated focus and text colors -->
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Dell" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Dell</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="HP" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">HP</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Lenovo" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Lenovo</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Apple" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Apple</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Asus" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Asus</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Acer" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Acer</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="MSI" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">MSI</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Toshiba" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Toshiba</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Samsung" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Samsung</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="brand" value="Huawei" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Huawei</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Processor Filter -->
+            <div class="filter-group">
+                <h3 class="text-xs font-semibold text-slate-500 dark:text-neutral-500 uppercase tracking-widest mb-4">Processor</h3>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="i3" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Intel Core i3</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="i5" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Intel Core i5</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="i7" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Intel Core i7</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="i9" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Intel Core i9</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="Celeron" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Celeron / Pentium</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="Ryzen 3" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">AMD Ryzen 3</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="Ryzen 5" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">AMD Ryzen 5</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="Ryzen 7" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">AMD Ryzen 7</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="Ryzen 9" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">AMD Ryzen 9</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="M1" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Apple M1</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="M2" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Apple M2</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="cpu" value="M3" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Apple M3</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- RAM Filter -->
+            <div class="filter-group">
+                <h3 class="text-xs font-semibold text-slate-500 dark:text-neutral-500 uppercase tracking-widest mb-4">RAM</h3>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="ram" value="4GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">4GB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="ram" value="8GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">8GB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="ram" value="16GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">16GB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="ram" value="32GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">32GB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="ram" value="64GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">64GB</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Storage Filter -->
+            <div class="filter-group">
+                <h3 class="text-xs font-semibold text-slate-500 dark:text-neutral-500 uppercase tracking-widest mb-4">Storage</h3>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="storage" value="128GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">128GB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="storage" value="256GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">256GB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="storage" value="512GB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">512GB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="storage" value="1TB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">1TB</span>
+                    </label>
+                    <label class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-neutral-300 cursor-pointer group">
+                        <input type="checkbox" name="storage" value="2TB" class="rounded border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 w-4 h-4 transition-all">
+                        <span class="group-hover:text-slate-900 dark:group-hover:text-white transition-colors">2TB</span>
+                    </label>
+                </div>
+            </div>
+
+            <button id="apply-filters" class="w-full mt-2 bg-slate-200 dark:bg-white/5 hover:bg-sky-600 text-slate-900 dark:text-white hover:text-white border border-slate-300 dark:border-white/10 hover:border-sky-500 font-medium py-3 px-4 rounded-xl text-sm transition-all duration-300">
+                Apply Filters
+            </button>
+        </div>
+    </aside>
+
+    <!-- Product Grid Section -->
+    <section class="flex-1">
+
+        <!-- Search & Sort Bar -->
+        <div class="mb-4 flex flex-col sm:flex-row gap-4 items-center justify-between bg-slate-50 dark:bg-neutral-900/30 backdrop-blur-sm p-4 rounded-2xl border border-slate-200 dark:border-white/5">
+            <div class="relative w-full sm:max-w-xs">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-neutral-500 text-sm"></i>
+                <input type="text" id="search-input" placeholder="Search laptops..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-neutral-950 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm outline-none transition-all">
+            </div>
+
+            <div class="relative w-full sm:w-auto shrink-0">
+                <select id="sort-select" class="w-full sm:w-48 px-4 py-2.5 rounded-xl bg-white dark:bg-neutral-950 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-neutral-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm outline-none transition-all appearance-none cursor-pointer">
+                    <option value="default">Sort By: Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-neutral-500 text-xs pointer-events-none"></i>
+            </div>
+        </div>
+
+        <!-- Active Category Pill -->
+        <div id="category-pill" class="hidden items-center gap-2 mb-4 bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 text-sky-700 dark:text-sky-300 text-sm font-semibold px-4 py-2 rounded-xl w-fit">
+            <span id="category-pill-label">Category</span>
+            <button id="clear-category-pill" class="text-sky-500 hover:text-sky-700 dark:hover:text-white transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- The Product Grid Container -->
+        <div class="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4" id="product-grid">
+            <!-- Cards are rendered dynamically by renderProducts() in index.js -->
+        </div>
+    </section>
+
+</main>
+
+<!-- 6. Upgraded Detailed Cart & Checkout Modal -->
+<div id="cart-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+    <div class="bg-white dark:bg-neutral-900 w-full max-w-2xl rounded-[2rem] border border-slate-200 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden max-h-[90vh] flex flex-col relative">
+
+        <!-- Modal Header -->
+        <header class="p-6 border-b border-slate-200 dark:border-white/5 flex items-center justify-between bg-slate-50 dark:bg-neutral-950/50 shrink-0">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <div class="p-2.5 bg-sky-100 dark:bg-sky-500/20 rounded-xl text-sky-600 dark:text-sky-400">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                Your Shopping Bag &amp; Checkout
+            </h2>
+            <button id="close-modal-btn" class="w-9 h-9 flex items-center justify-center rounded-full bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </header>
+
+        <!-- Modal Scrollable Content Area -->
+        <div class="overflow-y-auto flex-1 p-6 space-y-8 custom-scrollbar">
+
+            <!-- Cart Items Section -->
+            <div>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-neutral-500 mb-4">Selected Items</h3>
+                <div class="space-y-3 min-h-[140px] max-h-[250px] overflow-y-auto pr-1" id="cart-items">
+                    <!-- Cart items dynamically rendered here -->
+                </div>
+            </div>
+
+            <!-- Cost Summary Breakdown -->
+            <div class="bg-slate-50 dark:bg-neutral-950/40 p-5 rounded-2xl border border-slate-200 dark:border-white/5 space-y-3">
+                <div class="flex justify-between items-center text-sm text-slate-600 dark:text-neutral-400">
+                    <span>Subtotal</span>
+                    <span id="subtotal-price" class="price-font font-semibold text-slate-900 dark:text-white">Rs 0</span>
+                </div>
+                <div class="flex justify-between items-center text-sm text-slate-600 dark:text-neutral-400">
+                    <span>Estimated Shipping (Doorstep Delivery)</span>
+                    <span class="price-font font-semibold text-emerald-600 dark:text-emerald-400">FREE</span>
+                </div>
+                <div class="border-t border-slate-200 dark:border-white/10 pt-3 flex justify-between items-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-neutral-500">Grand Total</span>
+                    <span id="total-price" class="text-2xl text-sky-600 dark:text-sky-400 price-font font-bold">Rs 0</span>
+                </div>
+            </div>
+
+            <!-- Detailed Checkout Form -->
+            <div>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-neutral-500 mb-4">Shipping &amp; Contact Details</h3>
+                <form id="checkout-form" class="space-y-4">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" id="customer-name" placeholder="Full Name" required class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3.5 px-4 outline-none transition-all">
+                        <input type="tel" id="customer-phone" placeholder="WhatsApp Phone Number" required class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3.5 px-4 outline-none transition-all">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" id="customer-city" placeholder="City / Region" required class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3.5 px-4 outline-none transition-all">
+                        <select id="payment-method" class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3.5 px-4 outline-none transition-all cursor-pointer">
+                            <option value="COD">Cash on Delivery (COD)</option>
+                            <option value="Bank">Direct Bank Transfer</option>
+                        </select>
+                    </div>
+
+                    <textarea id="customer-address" placeholder="Complete Street Address / House No / Landmark" rows="2" required class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3.5 px-4 outline-none resize-none transition-all"></textarea>
+
+                    <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1ebe57] text-black font-extrabold py-4 px-4 rounded-xl shadow-[0_0_25px_rgba(37,211,102,0.35)] transition-all flex items-center justify-center gap-3 mt-4 text-base">
+                        <i class="fab fa-whatsapp text-2xl"></i> Place Order via WhatsApp
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 7. Floating WhatsApp Button -->
+<a href="https://wa.me/923000708221" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 bg-[#25D366] text-black w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 z-40 text-2xl">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- 8. Footer -->
+<footer class="bg-slate-50 dark:bg-black border-t border-slate-200 dark:border-white/10 mt-16">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Brand -->
+        <div>
+            <h3 class="text-xl font-extrabold tracking-tighter text-slate-900 dark:text-white mb-3">FTL<span class="text-sky-500">TRADERS</span></h3>
+            <p class="text-sm text-slate-600 dark:text-neutral-400 leading-relaxed">
+                Pakistan's first laptop e-commerce wholesale store. Wholesale prices, certified quality checks, delivered to your doorstep.
+            </p>
+        </div>
+
+        <!-- Information -->
+        <div>
+            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-neutral-500 mb-4">Information</h4>
+            <ul class="space-y-2.5 text-sm">
+                <li><button data-modal-open="modal-about" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">About Us</button></li>
+                <li><button data-modal-open="modal-contact" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Contact Us</button></li>
+                <li class="text-slate-600 dark:text-neutral-400">
+                    <i class="fas fa-map-marker-alt text-sky-500 mr-1"></i>5th road commercial RWP
+                </li>
+            </ul>
+        </div>
+
+        <!-- Help -->
+        <div>
+            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-neutral-500 mb-4">Help</h4>
+            <ul class="space-y-2.5 text-sm">
+                <li><button data-modal-open="modal-return-policy" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Return Policy</button></li>
+                <li><button data-modal-open="modal-faq" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">FAQ</button></li>
+                <li><button data-modal-open="modal-contact" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Help / Support</button></li>
+            </ul>
+        </div>
+
+        <!-- Connect -->
+        <div>
+            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-neutral-500 mb-4">Connect</h4>
+            <div class="flex flex-col gap-3 items-start">
+                <a href="https://wa.me/923000708221" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/30 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#25D366]/20 transition-colors">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+
+                <a href="https://www.instagram.com/futuretechlinks?igsh=MXg4M2J0ZWt4dDZsYw==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#E1306C]/10 text-[#E1306C] border border-[#E1306C]/30 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#E1306C]/20 transition-colors">
+                    <i class="fab fa-instagram"></i> Follow on Instagram
+                </a>
+
+                <a href="https://www.tiktok.com/@ftl_traders?_r=1&_t=ZS-98xp9cBKdUN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-black/5 dark:bg-white/5 text-black dark:text-white border border-black/20 dark:border-white/20 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                    <i class="fab fa-tiktok"></i> Follow on TikTok
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-t border-slate-200 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-5 text-center text-xs text-slate-500 dark:text-neutral-600">
+            &copy; <span class="footer-year">2026</span> FTL Traders. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- About Us Modal -->
+<div id="modal-about" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+    <div class="bg-white dark:bg-neutral-900 w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative">
+        <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400"><i class="fas fa-times"></i></button>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">About Us</h3>
+        <p class="text-sm text-slate-600 dark:text-neutral-400 leading-relaxed">
+            FTL Traders is Pakistan's first laptop e-commerce wholesale store, offering wholesale pricing to individuals and businesses nationwide. Every laptop is checked and tested by our certified technical team before it ships, and every order comes with a 15-day guarantee — delivered straight to your doorstep.
+        </p>
+    </div>
+</div>
+
+<!-- Contact Us / Help Modal -->
+<div id="modal-contact" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+    <div class="bg-white dark:bg-neutral-900 w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative">
+        <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400"><i class="fas fa-times"></i></button>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Contact Us</h3>
+        <ul class="space-y-3 text-sm text-slate-600 dark:text-neutral-400">
+            <li class="flex items-center gap-3"><i class="fab fa-whatsapp text-[#25D366] w-4"></i> +92 300 0708221</li>
+            <li class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 w-4"></i> ftltraders26@gmail.com</li>
+            <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-sky-500 w-4"></i>5th road commercial RWP</li>
+        </ul>
+        <a href="https://wa.me/923000708221" target="_blank" rel="noopener noreferrer" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe57] text-black font-bold py-3 rounded-xl transition-all">
+            <i class="fab fa-whatsapp"></i> Message Us on WhatsApp
+        </a>
+    </div>
+</div>
+
+<!-- Return Policy Modal -->
+<div id="modal-return-policy" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+    <div class="bg-white dark:bg-neutral-900 w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative">
+        <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400"><i class="fas fa-times"></i></button>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Return &amp; Replacement Policy</h3>
+        <ul class="space-y-2.5 text-sm text-slate-600 dark:text-neutral-400 list-disc pl-5">
+            <li>15-day replacement guarantee from the delivery date for manufacturing defects.</li>
+            <li>The laptop must be returned in its original condition with all included accessories.</li>
+            <li>Physical damage, liquid damage, or misuse is not covered.</li>
+            <li>Contact us on WhatsApp to start a return — we'll guide you through the next steps.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- FAQ Modal -->
+<div id="modal-faq" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+    <div class="bg-white dark:bg-neutral-900 w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative max-h-[85vh] overflow-y-auto">
+        <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400"><i class="fas fa-times"></i></button>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h3>
+        <div class="space-y-4 text-sm">
+            <div>
+                <p class="font-semibold text-slate-900 dark:text-white">Do you offer wholesale pricing?</p>
+                <p class="text-slate-600 dark:text-neutral-400 mt-1">Yes — we're a wholesale store, so our prices are already set at wholesale rates for individuals and businesses alike.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-slate-900 dark:text-white">Are your laptops new or used?</p>
+                <p class="text-slate-600 dark:text-neutral-400 mt-1">Every laptop is checked and tested by our certified technical team before it ships, whether new or pre-owned.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-slate-900 dark:text-white">How long does delivery take?</p>
+                <p class="text-slate-600 dark:text-neutral-400 mt-1">We deliver laptops to your doorstep nationwide. Contact us on WhatsApp for delivery times to your city.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-slate-900 dark:text-white">What's your return policy?</p>
+                <p class="text-slate-600 dark:text-neutral-400 mt-1">Every order comes with a 15-day replacement guarantee. See our full Return Policy for details.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- === FLOATING COMPARE BAR WIDGET === -->
+<div id="compare-bar" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl border border-slate-200 dark:border-white/10 py-3 px-6 rounded-2xl shadow-2xl items-center gap-6 transition-all duration-300">
+    <p class="text-xs sm:text-sm font-semibold text-slate-700 dark:text-neutral-300">
+        Compare Laptops: <span id="compare-count" class="font-mono text-sky-500 font-bold">0</span> / 3
+    </p>
+    <div class="flex items-center gap-3">
+        <button id="compare-clear-btn" class="text-xs text-slate-500 hover:text-red-500 font-medium transition-colors">Clear</button>
+        <button id="compare-open-btn" class="bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold py-2 px-4 rounded-xl transition-all shadow-md shadow-sky-600/20">
+            Compare Now
+        </button>
+    </div>
+</div>
+
+<!-- === COMPARE DISPLAY TABLE MODAL === -->
+<div id="compare-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white dark:bg-neutral-900 w-full max-w-4xl rounded-[2rem] border border-slate-200 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden max-h-[90vh] flex flex-col relative">
+
+        <!-- Modal Header -->
+        <header class="p-6 border-b border-slate-200 dark:border-white/5 flex items-center justify-between bg-slate-50 dark:bg-neutral-950/50 shrink-0">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <div class="p-2 bg-sky-100 dark:bg-sky-500/20 rounded-lg text-sky-600 dark:text-sky-400">
+                    <i class="fas fa-columns"></i>
+                </div>
+                Compare Product Specifications
+            </h2>
+            <button id="close-compare-modal" class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </header>
+
+        <!-- Dynamic Content Body -->
+        <div class="overflow-y-auto overflow-x-hidden flex-1 p-3 sm:p-6 custom-scrollbar">
+            <table class="table-fixed w-full text-left border-collapse">
+                <tbody id="compare-table-body">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="footer.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

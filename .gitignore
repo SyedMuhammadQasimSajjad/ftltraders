@@ -1,0 +1,21 @@
+# --- Database and Secret Keys ---
+.env
+
+# --- Dependency Folders ---
+node_modules/
+
+
+# --- Operating System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+npm-debug.log*
+
+# --- Editor Folders & Vercel Files ---
+.vscode/
+.idea/
+server.js
+middleware.js
+vercel.json

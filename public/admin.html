@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTL Traders | Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] } } }
+        }
+    </script>
+    <script src="config.js"></script>
+</head>
+<body class="bg-[#050505] text-neutral-300 font-sans min-h-screen p-8">
+
+<div class="max-w-2xl mx-auto">
+    <div class="flex items-center justify-between mb-8">
+        <h1 class="text-3xl font-extrabold text-white">Store <span class="text-indigo-500">Admin</span></h1>
+        <div class="flex items-center gap-4">
+            <a href="manage.html" class="text-sm text-neutral-400 hover:text-white transition-colors">Manage Products &rarr;</a>
+            <a href="index.html" class="text-sm text-neutral-400 hover:text-white transition-colors">View Store &rarr;</a>
+        </div>
+    </div>
+    <form id="add-product-form" class="bg-neutral-900/50 backdrop-blur-md p-8 rounded-3xl border border-white/10 space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="col-span-full">
+            <label class="block text-xs font-bold text-neutral-500 uppercase">Title</label>
+            <input type="text" id="title" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        </div>
+
+        <div>
+            <label class="block text-xs font-bold text-neutral-500 uppercase">Category</label>
+            <select id="admin-category" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+                <option value="business">Business</option>
+                <option value="budget">Student & Budget</option>
+                <option value="gaming">Gaming</option>
+                <option value="apple">Apple</option>
+                <option value="general">General</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-xs font-bold text-neutral-500 uppercase">Price (PKR)</label>
+            <input type="number" id="price" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        </div>
+
+
+        <div class="col-span-full border-t border-white/10 pt-4 mt-4">
+            <h3 class="text-indigo-400 font-bold mb-4">Technical Specifications</h3>
+        </div>
+
+        <input type="text" id="brand" placeholder="Brand" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="cpu" placeholder="CPU" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="cpu_cores" placeholder="CPU Cores/Threads" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="gpu" placeholder="GPU" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="vram" placeholder="VRAM" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="ram" placeholder="RAM" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="ram_type" placeholder="RAM Type" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="storage" placeholder="Storage" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="storage_type" placeholder="Storage Type" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="display_spec" placeholder="Display Specs" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="resolution" placeholder="Resolution" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="refresh_rate" placeholder="Refresh Rate" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="panel_type" placeholder="Panel Type" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="wifi" placeholder="WiFi/Bluetooth" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="ports" placeholder="Ports" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="webcam" placeholder="Webcam" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="keyboard" placeholder="Keyboard" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="security" placeholder="Security/Biometrics" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="os" placeholder="OS" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="battery_health" placeholder="Battery Health" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="weight" placeholder="Weight" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="material" placeholder="Chassis Material" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="condition" placeholder="Condition/Grade" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+        <input type="text" id="warranty" placeholder="Warranty" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white">
+
+
+            <!-- Image URLs -->
+            <div class="col-span-full space-y-3">
+                <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Product Images (Direct Links)</label>
+                <input type="text" id="image_1" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-indigo-500 focus:outline-none" placeholder="Main Image URL (Required) e.g. https://i.ibb.co/img1.jpg">
+                <input type="text" id="image_2" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-indigo-500 focus:outline-none" placeholder="Image 2 URL (Optional)">
+                <input type="text" id="image_3" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-indigo-500 focus:outline-none" placeholder="Image 3 URL (Optional)">
+            </div>
+        </div>
+        <div class="col-span-full">
+            <label class="block text-xs font-bold text-neutral-500 uppercase">Description</label>
+            <textarea id="admin-description" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full mt-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)]">
+            Add Product to Database
+        </button>
+
+        <!-- Success/Error Message Container -->
+        <p id="status-message" class="text-center text-sm font-semibold hidden mt-4"></p>
+    </form>
+</div>
+
+
+<script>
+    document.getElementById('add-product-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const statusMsg = document.getElementById('status-message');
+        statusMsg.classList.remove('hidden', 'text-red-400', 'text-green-400');
+        statusMsg.innerText = "Formatting and saving...";
+        statusMsg.classList.add('block', 'text-neutral-400');
+
+
+        let galleryArray = [];
+        ['image_1', 'image_2', 'image_3'].forEach(id => {
+            const val = document.getElementById(id).value.trim();
+            if (val) galleryArray.push({ type: 'image', url: val });
+        });
+
+
+        const newProduct = {
+            title: document.getElementById('title').value,
+            brand: document.getElementById('brand').value,
+            price: parseFloat(document.getElementById('price').value),
+            category: document.getElementById('admin-category').value,
+            description: document.getElementById('admin-description').value,
+
+
+            cpu: document.getElementById('cpu').value,
+            cpu_cores: document.getElementById('cpu_cores')?.value || '',
+            gpu: document.getElementById('gpu')?.value || '',
+            vram: document.getElementById('vram')?.value || '',
+            ram: document.getElementById('ram').value,
+            ram_type: document.getElementById('ram_type')?.value || '',
+            storage: document.getElementById('storage').value,
+            storage_type: document.getElementById('storage_type')?.value || '',
+            display_spec: document.getElementById('display_spec')?.value || '',
+            resolution: document.getElementById('resolution')?.value || '',
+            refresh_rate: document.getElementById('refresh_rate')?.value || '',
+            panel_type: document.getElementById('panel_type')?.value || '',
+            wifi: document.getElementById('wifi')?.value || '',
+            ports: document.getElementById('ports')?.value || '',
+            webcam: document.getElementById('webcam')?.value || '',
+            keyboard: document.getElementById('keyboard')?.value || '',
+            security: document.getElementById('security')?.value || '',
+            os: document.getElementById('os')?.value || '',
+            battery_health: document.getElementById('battery_health')?.value || '',
+            weight: document.getElementById('weight')?.value || '',
+            material: document.getElementById('material')?.value || '',
+            condition: document.getElementById('condition')?.value || '',
+            warranty: document.getElementById('warranty')?.value || '',
+
+            media_url: JSON.stringify(galleryArray)
+        };
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/products`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newProduct)
+            });
+
+            if (response.ok) {
+                statusMsg.innerText = "Product added successfully!";
+                statusMsg.classList.replace('text-neutral-400', 'text-green-400');
+                document.getElementById('add-product-form').reset();
+            } else {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Failed to add product");
+            }
+        } catch (error) {
+            console.error(error);
+            statusMsg.innerText = "Error: " + error.message;
+            statusMsg.classList.replace('text-neutral-400', 'text-red-400');
+        }
+    });
+</script>
+
+</body>
+</html>

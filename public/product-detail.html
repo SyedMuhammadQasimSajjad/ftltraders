@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Dynamic SEO Placeholders -->
+  <title id="seo-title">FTL Traders | Product Details</title>
+  <meta id="seo-description" name="description" content="Premium laptops at wholesale prices in Pakistan.">
+  <link id="seo-canonical" rel="canonical" href="https://ftltraders.com/">
+
+  <!-- Open Graph / Social Media -->
+  <meta id="seo-og-title" property="og:title" content="FTL Traders | Product Details">
+  <meta id="seo-og-description" property="og:description" content="Premium laptops at wholesale prices in Pakistan.">
+  <meta id="seo-og-image" property="og:image" content="https://ftltraders.com/logo.jpeg">
+  <meta id="seo-og-url" property="og:url" content="https://ftltraders.com/">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts for Aesthetic Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Montserrat Font for Prices -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    .price-font {
+      font-family: 'Montserrat', sans-serif !important;
+      font-weight: 700 !important;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <script src="config.js"></script>
+</head>
+<body class="bg-white dark:bg-gradient-to-br dark:from-[#1e252b] dark:to-[#111417] text-slate-900 dark:text-neutral-300 font-sans min-h-screen h-full flex flex-col selection:bg-sky-500 selection:text-white transition-colors duration-300">
+
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-black/60 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between relative">
+
+    <!-- Back to Store Button -->
+    <a href="index.html" class="flex items-center gap-3 text-slate-500 dark:text-neutral-500 hover:text-sky-600 dark:hover:text-sky-400 transition-colors group z-10">
+      <div class="w-10 h-10 bg-slate-100 dark:bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-sky-50 dark:group-hover:bg-sky-500/10 transition-colors">
+        <i class="fas fa-arrow-left text-sm group-hover:-translate-x-1 transition-transform"></i>
+      </div>
+      <span class="font-semibold text-sm hidden sm:block text-slate-700 dark:text-neutral-300 group-hover:text-sky-600 dark:hover:text-sky-400">Back to Store</span>
+    </a>
+
+    <!-- Branding (Centered) -->
+    <h1 class="text-xl md:text-2xl font-extrabold tracking-tighter text-slate-900 dark:text-white absolute left-1/2 -translate-x-1/2">
+      FTL<span class="text-sky-500">TRADERS</span>
+    </h1>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="p-3 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-full border border-slate-200 dark:border-white/5 transition-all text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white z-10">
+      <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
+  </div>
+</header>
+<div id="page-loader" class="fixed inset-0 z-50 bg-white dark:bg-[#111417] flex flex-col items-center justify-center gap-4 transition-opacity duration-300">
+  <i class="fas fa-spinner fa-spin text-4xl text-sky-500"></i>
+  <p class="text-sm font-semibold text-slate-600 dark:text-neutral-400">Loading laptop details...</p>
+</div>
+
+<!-- REFRESHED PDP LAYOUT -->
+<main class="max-w-6xl mx-auto px-6 py-12 flex-1 w-full hidden" id="main-content">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+    <!-- PROFESSIONAL IMAGE GALLERY CARD -->
+    <div class="relative bg-slate-50 dark:bg-neutral-900/50 p-8 rounded-3xl border border-slate-200 dark:border-white/5 flex items-center justify-center w-full min-h-[380px] transition-colors duration-300 shadow-lg dark:shadow-none group overflow-hidden">
+
+      <!-- Previous Arrow -->
+      <button onclick="changeGalleryImage(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-black/50 hover:bg-sky-600 text-slate-700 dark:text-white transition-all backdrop-blur-md opacity-80 group-hover:opacity-100 cursor-pointer z-10 shadow-lg">
+        <i class="fas fa-chevron-left text-sm"></i>
+      </button>
+
+      <!-- Main Image Container -->
+      <div class="flex-1 flex justify-center items-center overflow-hidden px-6">
+        <img id="detail-image" src="" alt="Product" class="w-full h-auto object-contain max-h-[400px] rounded-xl cursor-pointer transition-transform duration-500 group-hover:scale-105">
+      </div>
+
+      <!-- Next Arrow -->
+      <button onclick="changeGalleryImage(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-black/50 hover:bg-sky-600 text-slate-700 dark:text-white transition-all backdrop-blur-md opacity-80 group-hover:opacity-100 cursor-pointer z-10 shadow-lg">
+        <i class="fas fa-chevron-right text-sm"></i>
+      </button>
+
+      <!-- Zoom Hint Badge -->
+      <div class="absolute bottom-4 right-4 bg-white/80 dark:bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-slate-600 dark:text-neutral-400 font-medium tracking-wider uppercase border border-slate-200 dark:border-white/5 pointer-events-none">
+        <i class="fas fa-search-plus mr-1 text-sky-500"></i> Click to Zoom
+      </div>
+    </div>
+
+    <!-- Right Side: Info & CTA -->
+    <div class="space-y-8">
+      <div>
+        <span id="detail-brand" class="text-sky-600 dark:text-sky-400 font-bold tracking-widest uppercase text-xs">Brand</span>
+        <h1 id="detail-title" class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mt-2">Title</h1>
+        <p id="detail-price" class="text-3xl text-slate-900 dark:text-white mt-4 price-font">$0</p>
+      </div>
+
+      <!-- Specs Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-slate-50 dark:bg-neutral-900/50 p-5 rounded-2xl border border-slate-200 dark:border-white/5 transition-colors duration-300">
+          <p class="text-[10px] text-slate-500 dark:text-neutral-500 uppercase font-bold">Processor</p>
+          <p id="detail-cpu" class="text-slate-900 dark:text-white font-semibold mt-1">N/A</p>
+        </div>
+        <div class="bg-slate-50 dark:bg-neutral-900/50 p-5 rounded-2xl border border-slate-200 dark:border-white/5 transition-colors duration-300">
+          <p class="text-[10px] text-slate-500 dark:text-neutral-500 uppercase font-bold">Memory</p>
+          <p id="detail-ram" class="text-slate-900 dark:text-white font-semibold mt-1">N/A</p>
+        </div>
+        <div class="bg-slate-50 dark:bg-neutral-900/50 p-5 rounded-2xl border border-slate-200 dark:border-white/5 col-span-2 transition-colors duration-300">
+          <p class="text-[10px] text-slate-500 dark:text-neutral-500 uppercase font-bold">Storage</p>
+          <p id="detail-storage" class="text-slate-900 dark:text-white font-semibold mt-1">N/A</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <button id="direct-buy-btn" class="w-full bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-3 text-lg transition-all shadow-[0_0_30px_rgba(37,211,102,0.2)] cursor-pointer">
+        <i class="fab fa-whatsapp text-2xl"></i> Order via WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- === DESCRIPTION & REVIEWS SECTION === -->
+  <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-12 border-t border-slate-200 dark:border-white/10 pt-12">
+
+    <!-- Left Column: Detailed Specifications Table -->
+    <div class="lg:col-span-2 space-y-6">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Full Technical Specifications</h2>
+
+      <div class="overflow-hidden border border-slate-200 dark:border-white/10 rounded-2xl bg-slate-50/50 dark:bg-neutral-900/20 backdrop-blur-sm">
+        <table class="w-full text-left border-collapse">
+          <tbody id="detail-specs-table-body">
+          <tr>
+            <td class="p-4 text-center text-sm text-slate-500" colspan="2">Loading parameters...</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Free-text Field for Client Notes / Custom text -->
+      <div class="mt-8">
+        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Seller Notes & Condition</h3>
+        <div id="detail-additional-notes" class="text-sm text-slate-600 dark:text-neutral-400 leading-relaxed bg-slate-50 dark:bg-neutral-900/40 p-5 rounded-xl border border-slate-200 dark:border-white/5">
+          <!-- Handled dynamically by detail.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Reviews & Star System -->
+    <div class="space-y-8">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Customer Reviews</h2>
+
+      <!-- Average Rating Summary -->
+      <div class="flex items-center gap-4 bg-slate-50 dark:bg-neutral-900/50 p-6 rounded-2xl border border-slate-200 dark:border-white/5">
+        <div class="text-4xl font-extrabold text-slate-900 dark:text-white" id="average-rating">0.0</div>
+        <div>
+          <div class="flex text-yellow-400 text-sm" id="star-container">
+            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-neutral-500 mt-1"><span id="total-reviews">0</span> Reviews</p>
+        </div>
+      </div>
+
+      <!-- Write a Review Form -->
+      <form id="review-form" class="space-y-4 bg-slate-50 dark:bg-neutral-900/30 p-6 rounded-2xl border border-slate-200 dark:border-white/5">
+        <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-2">Write a Review</h3>
+
+        <input type="text" id="reviewer-name" placeholder="Your Name" required class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3 px-4 outline-none transition-all">
+
+        <!-- Star Selector -->
+        <select id="review-rating" required class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3 px-4 outline-none transition-all cursor-pointer">
+          <option value="" disabled selected>Select Rating</option>
+          <option value="5">5 Stars - Excellent</option>
+          <option value="4">4 Stars - Good</option>
+          <option value="3">3 Stars - Average</option>
+          <option value="2">2 Stars - Poor</option>
+          <option value="1">1 Star - Terrible</option>
+        </select>
+
+        <textarea id="review-text" placeholder="Share your experience..." rows="3" required class="w-full rounded-xl bg-white dark:bg-neutral-950 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm py-3 px-4 outline-none resize-none transition-all"></textarea>
+
+        <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-4 rounded-xl transition-all cursor-pointer">
+          Submit Review
+        </button>
+      </form>
+
+      <!-- Dynamic Reviews List -->
+      <div id="reviews-list" class="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+        <!-- JavaScript will inject individual reviews here -->
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Image Lightbox Modal with Next/Prev Navigation -->
+<div id="image-lightbox" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+  <!-- Close Button -->
+  <button id="close-lightbox" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors cursor-pointer z-10">
+    <i class="fas fa-times"></i>
+  </button>
+
+  <!-- Previous Button -->
+  <button id="prev-lightbox" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors cursor-pointer z-10">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <!-- Zoomed Image Container -->
+  <img id="lightbox-img" src="" alt="Zoomed Product Image" class="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl transition-transform duration-300">
+
+  <!-- Next Button -->
+  <button id="next-lightbox" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors cursor-pointer z-10">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-[#111417] border-t border-slate-200 dark:border-white/10 mt-16">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+    <div>
+      <h3 class="text-xl font-extrabold tracking-tighter text-slate-900 dark:text-white mb-3">FTL<span class="text-sky-500">TRADERS</span></h3>
+      <p class="text-sm text-slate-600 dark:text-neutral-400 leading-relaxed">
+        Pakistan's first laptop e-commerce wholesale store. Wholesale prices, certified quality checks, delivered to your doorstep.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-neutral-500 mb-4">Information</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><button data-modal-open="modal-about" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors cursor-pointer">About Us</button></li>
+        <li><button data-modal-open="modal-contact" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors cursor-pointer">Contact Us</button></li>
+        <li class="text-slate-600 dark:text-neutral-400">
+          <i class="fas fa-map-marker-alt text-sky-500 mr-1"></i> 5th road commercial RWP</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-neutral-500 mb-4">Help</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><button data-modal-open="modal-return-policy" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors cursor-pointer">Return Policy</button></li>
+        <li><button data-modal-open="modal-faq" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors cursor-pointer">FAQ</button></li>
+        <li><button data-modal-open="modal-contact" class="text-slate-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors cursor-pointer">Help / Support</button></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-neutral-500 mb-4">Connect</h4>
+      <div class="flex flex-col gap-3 items-start">
+        <a href="https://wa.me/923000708221" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/30 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#25D366]/20 transition-colors">
+          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+
+        <a href="https://www.instagram.com/futuretechlinks?igsh=MXg4M2J0ZWt4dDZsYw==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#E1306C]/10 text-[#E1306C] border border-[#E1306C]/30 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#E1306C]/20 transition-colors">
+          <i class="fab fa-instagram"></i> Follow on Instagram
+        </a>
+
+        <a href="https://www.tiktok.com/@ftl_traders?_r=1&_t=ZS-98xp9cBKdUN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-black/5 dark:bg-white/5 text-black dark:text-white border border-black/20 dark:border-white/20 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+          <i class="fab fa-tiktok"></i> Follow on TikTok
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-slate-200 dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-5 text-center text-xs text-slate-500 dark:text-neutral-600">
+      &copy; <span class="footer-year">2026</span> FTL Traders. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- About Us Modal -->
+<div id="modal-about" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+  <div class="bg-white dark:bg-[#1a2025] w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative">
+    <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400 cursor-pointer"><i class="fas fa-times"></i></button>
+    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">About Us</h3>
+    <p class="text-sm text-slate-600 dark:text-neutral-400 leading-relaxed">
+      FTL Traders is Pakistan's first laptop e-commerce wholesale store, offering wholesale pricing to individuals and businesses nationwide. Every laptop is checked and tested by our certified technical team before it ships, and every order comes with a 15-day guarantee — delivered straight to your doorstep.
+    </p>
+  </div>
+</div>
+
+<!-- Contact Us / Help Modal -->
+<div id="modal-contact" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+  <div class="bg-white dark:bg-[#1a2025] w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative">
+    <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400 cursor-pointer"><i class="fas fa-times"></i></button>
+    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Contact Us</h3>
+    <ul class="space-y-3 text-sm text-slate-600 dark:text-neutral-400">
+      <li class="flex items-center gap-3"><i class="fab fa-whatsapp text-[#25D366] w-4"></i> +92 300 0708221</li>
+      <li class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 w-4"></i> ftltraders26@gmail.com</li>
+      <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-sky-500 w-4"></i> 5th road commercial RWP</li>
+    </ul>
+    <a href="https://wa.me/923000708221" target="_blank" rel="noopener noreferrer" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-sky-600 text-black font-bold py-3 rounded-xl transition-all cursor-pointer">
+      <i class="fab fa-whatsapp"></i> Message Us on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- Return Policy Modal -->
+<div id="modal-return-policy" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+  <div class="bg-white dark:bg-[#1a2025] w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative">
+    <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400 cursor-pointer"><i class="fas fa-times"></i></button>
+    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Return &amp; Replacement Policy</h3>
+    <ul class="space-y-2.5 text-sm text-slate-600 dark:text-neutral-400 list-disc pl-5">
+      <li>15-day replacement guarantee from the delivery date for manufacturing defects.</li>
+      <li>The laptop must be returned in its original condition with all included accessories.</li>
+      <li>Physical damage, liquid damage, or misuse is not covered.</li>
+      <li>Contact us on WhatsApp to start a return — we'll guide you through the next steps.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FAQ Modal -->
+<div id="modal-faq" class="modal-overlay hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xl items-center justify-center p-4">
+  <div class="bg-white dark:bg-[#1a2025] w-full max-w-md rounded-3xl border border-slate-200 dark:border-white/10 p-6 relative max-h-[85vh] overflow-y-auto">
+    <button data-modal-close class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-neutral-400 cursor-pointer"><i class="fas fa-times"></i></button>
+    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h3>
+    <div class="space-y-4 text-sm">
+      <div>
+        <p class="font-semibold text-slate-900 dark:text-white">Do you offer wholesale pricing?</p>
+        <p class="text-slate-600 dark:text-neutral-400 mt-1">Yes — we're a wholesale store, so our prices are already set at wholesale rates for individuals and businesses alike.</p>
+      </div>
+      <div>
+        <p class="font-semibold text-slate-900 dark:text-white">Are your laptops new or used?</p>
+        <p class="text-slate-600 dark:text-neutral-400 mt-1">Every laptop is checked and tested by our certified technical team before it ships, whether new or pre-owned.</p>
+      </div>
+      <div>
+        <p class="font-semibold text-slate-900 dark:text-white">How long does delivery take?</p>
+        <p class="text-slate-600 dark:text-neutral-400 mt-1">We deliver laptops to your doorstep nationwide. Contact us on WhatsApp for delivery times to your city.</p>
+      </div>
+      <div>
+        <p class="font-semibold text-slate-900 dark:text-white">What's your return policy?</p>
+        <p class="text-slate-600 dark:text-neutral-400 mt-1">Every order comes with a 15-day replacement guarantee. See our full Return Policy for details.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="footer.js"></script>
+<script src="detail.js"></script>
+</body>
+</html>

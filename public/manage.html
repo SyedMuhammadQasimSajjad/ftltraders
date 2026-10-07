@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>FTL Traders | Manage Inventory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="config.js"></script>
+</head>
+<body class="bg-[#050505] text-neutral-300 p-8">
+
+<div class="max-w-6xl mx-auto space-y-12">
+
+  <div>
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-3xl font-extrabold text-white">Manage <span class="text-indigo-500">Products</span></h1>
+      <a href="admin.html" class="bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm">Add New Product</a>
+    </div>
+
+    <div class="bg-neutral-900/50 rounded-2xl border border-white/5 overflow-hidden">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-black/20 text-white uppercase text-xs font-bold">
+        <tr>
+          <th class="p-4">Title</th>
+          <th class="p-4">Price</th>
+          <th class="p-4 text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody id="product-table-body">
+        <!-- Data loaded by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div>
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-3xl font-extrabold text-white">Manage <span class="text-indigo-500">Reviews</span></h1>
+      <button onclick="loadReviews()" class="bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm">
+        <i class="fas fa-rotate-right mr-1"></i> Refresh
+      </button>
+    </div>
+
+    <div class="bg-neutral-900/50 rounded-2xl border border-white/5 overflow-hidden">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-black/20 text-white uppercase text-xs font-bold">
+        <tr>
+          <th class="p-4">Product</th>
+          <th class="p-4">Customer</th>
+          <th class="p-4">Rating</th>
+          <th class="p-4">Comment</th>
+          <th class="p-4 text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody id="review-table-body">
+        <!-- Data loaded by JS -->
+        </tbody>
+      </table>
+      <p id="reviews-empty" class="hidden text-center text-neutral-500 text-sm py-8">No reviews yet.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Edit Product Modal -->
+<div id="edit-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+  <div class="bg-neutral-900 p-8 rounded-3xl w-full max-w-lg border border-white/10 my-10 max-h-[90vh] overflow-y-auto">
+    <h2 class="text-xl font-bold text-white mb-6">Edit Product</h2>
+    <form id="edit-form" class="space-y-4">
+      <input type="hidden" id="edit-id">
+
+      <input type="text" id="edit-title" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white" placeholder="Title">
+      <input type="text" id="edit-brand" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white" placeholder="Brand">
+
+      <select id="edit-category" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white outline-none">
+        <option value="business">Business Laptops</option>
+        <option value="budget">Student & Budget</option>
+        <option value="gaming">Gaming Laptops</option>
+        <option value="apple">Apple / MacBook</option>
+        <option value="general">General Laptops</option>
+      </select>
+
+      <input type="number" id="edit-price" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white" placeholder="Price">
+      <input type="text" id="edit-cpu" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white" placeholder="CPU">
+      <input type="text" id="edit-ram" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white" placeholder="RAM">
+      <input type="text" id="edit-storage" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white" placeholder="Storage">
+
+      <textarea id="edit-description" rows="4" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white resize-none" placeholder="Product description"></textarea>
+
+      <!-- Image URLs -->
+      <div class="space-y-3 pt-2">
+        <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider">Product Images (Direct Links)</label>
+        <input type="text" id="edit-image_1" required class="w-full bg-black p-3 rounded-lg border border-white/10 text-white focus:border-indigo-500 focus:outline-none text-sm" placeholder="Main Image URL (Required)">
+        <input type="text" id="edit-image_2" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white focus:border-indigo-500 focus:outline-none text-sm" placeholder="Image 2 URL (Optional)">
+        <input type="text" id="edit-image_3" class="w-full bg-black p-3 rounded-lg border border-white/10 text-white focus:border-indigo-500 focus:outline-none text-sm" placeholder="Image 3 URL (Optional)">
+      </div>
+
+      <div class="flex gap-4 mt-6">
+        <button type="button" onclick="closeModal()" class="w-full py-3 bg-neutral-700 hover:bg-neutral-600 transition-colors rounded-lg">Cancel</button>
+        <button type="submit" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg text-white font-bold">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const tbody = document.getElementById('product-table-body');
+  const modal = document.getElementById('edit-modal');
+  let allProducts = [];
+
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+  }
+
+  async function loadProducts() {
+    const res = await fetch(`${API_BASE_URL}/api/products`);
+    allProducts = await res.json();
+
+    tbody.innerHTML = allProducts.map(p => `
+            <tr class="border-b border-white/5 hover:bg-white/5">
+                <td class="p-4 font-semibold text-white">${escapeHtml(p.title)}</td>
+                <td class="p-4 font-mono">${p.price}</td>
+                <td class="p-4 flex gap-3 justify-center">
+                    <button onclick='openEdit(${p.id})' class="text-indigo-400 hover:text-white transition-colors"><i class="fas fa-edit"></i></button>
+                    <button onclick="deleteProduct(${p.id})" class="text-red-400 hover:text-white transition-colors"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        `).join('');
+  }
+
+  async function deleteProduct(id) {
+    if (!confirm("Are you sure you want to delete this product?")) return;
+    await fetch(`${API_BASE_URL}/api/products/${id}`, { method: 'DELETE' });
+    loadProducts();
+  }
+
+  function openEdit(id) {
+    const p = allProducts.find(prod => prod.id === id);
+    if (!p) return;
+
+    document.getElementById('edit-id').value = p.id;
+    document.getElementById('edit-title').value = p.title || '';
+    document.getElementById('edit-brand').value = p.brand || '';
+    document.getElementById('edit-category').value = p.category || 'business';
+    document.getElementById('edit-price').value = p.price || '';
+    document.getElementById('edit-cpu').value = p.cpu || '';
+    document.getElementById('edit-ram').value = p.ram || '';
+    document.getElementById('edit-storage').value = p.storage || '';
+    document.getElementById('edit-description').value = p.description || '';
+
+    let media = [];
+    try {
+      media = typeof p.media_url === 'string' ? JSON.parse(p.media_url) : (p.media_url || []);
+    } catch (e) {
+      media = [];
+    }
+
+    document.getElementById('edit-image_1').value = media[0] ? media[0].url : '';
+    document.getElementById('edit-image_2').value = media[1] ? media[1].url : '';
+    document.getElementById('edit-image_3').value = media[2] ? media[2].url : '';
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeModal() { modal.classList.add('hidden'); }
+
+  document.getElementById('edit-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('edit-id').value;
+
+    let galleryArray = [];
+    ['edit-image_1', 'edit-image_2', 'edit-image_3'].forEach(fieldId => {
+      const val = document.getElementById(fieldId).value.trim();
+      if (val) galleryArray.push({ type: 'image', url: val });
+    });
+
+    const updated = {
+      title: document.getElementById('edit-title').value,
+      brand: document.getElementById('edit-brand').value,
+      category: document.getElementById('edit-category').value,
+      price: document.getElementById('edit-price').value,
+      cpu: document.getElementById('edit-cpu').value,
+      ram: document.getElementById('edit-ram').value,
+      storage: document.getElementById('edit-storage').value,
+      description: document.getElementById('edit-description').value,
+      media_url: JSON.stringify(galleryArray)
+    };
+
+    await fetch(`${API_BASE_URL}/api/products/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updated)
+    });
+    closeModal();
+    loadProducts();
+  });
+
+  const reviewTbody = document.getElementById('review-table-body');
+  const reviewsEmpty = document.getElementById('reviews-empty');
+
+  function starsHtml(rating) {
+    return Array.from({ length: 5 }, (_, i) =>
+            `<i class="${i < rating ? 'fas' : 'far'} fa-star text-yellow-400 text-xs"></i>`
+    ).join('');
+  }
+
+  async function loadReviews() {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/reviews`);
+      const reviews = await res.json();
+
+      if (reviews.length === 0) {
+        reviewTbody.innerHTML = '';
+        reviewsEmpty.classList.remove('hidden');
+        return;
+      }
+      reviewsEmpty.classList.add('hidden');
+
+      reviewTbody.innerHTML = reviews.map(r => `
+            <tr class="border-b border-white/5 hover:bg-white/5 align-top">
+                <td class="p-4 font-semibold text-white">${escapeHtml(r.product_title)}</td>
+                <td class="p-4">${escapeHtml(r.customer_name)}</td>
+                <td class="p-4">${starsHtml(r.rating)}</td>
+                <td class="p-4 text-neutral-400 max-w-xs">${escapeHtml(r.comment)}</td>
+                <td class="p-4 text-center">
+                    <button onclick="deleteReview(${r.id})" class="text-red-400 hover:text-white transition-colors"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        `).join('');
+    } catch (err) {
+      console.error("Error loading reviews:", err);
+    }
+  }
+
+  async function deleteReview(id) {
+    if (!confirm("Delete this review? This can't be undone.")) return;
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/reviews/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('Failed to delete review');
+      loadReviews();
+    } catch (err) {
+      console.error("Error deleting review:", err);
+      alert("Failed to delete review. Please try again.");
+    }
+  }
+
+  // Initialize data loads
+  loadProducts();
+  loadReviews();
+</script>
+</body>
+</html>
